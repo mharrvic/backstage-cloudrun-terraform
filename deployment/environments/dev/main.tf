@@ -11,3 +11,8 @@ module "vpc" {
   region     = var.region
   project_id = var.project
 }
+
+module "iam" {
+  source       = "../../modules/iam"
+  project_id   = var.project
+}

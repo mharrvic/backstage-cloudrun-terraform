@@ -15,3 +15,11 @@ module "vpc_network" {
       }
     ]
 }
+
+resource "google_vpc_access_connector" "connector" {
+  name          = "backstage-connector"
+  project       = var.project_id
+  region        = var.region
+  ip_cidr_range = var.serverless_vpc_ip_cidr_range
+  network       = module.vpc_network.network_name
+}

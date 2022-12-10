@@ -15,6 +15,13 @@ variable "subnet_ip" {
 }
 
 
+variable "serverless_vpc_ip_cidr_range" {
+  type        = string
+  description = "Serverless VPC Connector IP CIDR range"
+  default     = "10.8.0.0/28"
+}
+
+
 variable "network_name" {
   type        = string
   description = "Network name"

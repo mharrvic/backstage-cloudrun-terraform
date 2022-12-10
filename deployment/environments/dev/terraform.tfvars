@@ -1,0 +1,5 @@
+project="terraform-cloudrun-371209"
+region="us-west1"
+zone="us-west1-a"
+artifact_registry_url="us-west1-docker.pkg.dev"
+artifact_registry_repository="REPOSITORY_NAME"

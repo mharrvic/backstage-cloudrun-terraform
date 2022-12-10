@@ -3,11 +3,11 @@ locals {
 }
 
 provider "google" {
-  project = "${var.project}"
+  project = var.project
 }
 
 module "vpc" {
-  source = "../../modules/vpc"
-  region = "${var.region}"
-  project_id = "${var.project}"
+  source     = "../../modules/vpc"
+  region     = var.region
+  project_id = var.project
 }

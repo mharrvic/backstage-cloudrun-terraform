@@ -789,7 +789,7 @@ cd deployment/environments/dev/
 terraform init
 ```
 
-Run **`terraform plan tfplan`**  to generate the execution plan
+Run **`terraform plan -out tfplan`**  to generate the execution plan
 
 Run **`terraform apply tfplan`** to create or update infrastructure according to the execution plan
 

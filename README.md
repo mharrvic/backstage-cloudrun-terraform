@@ -22,14 +22,14 @@
 
    ```bash
    gcloud services enable \
-   	[artifactregistry.googleapis.com](http://artifactregistry.googleapis.com/) \
-   	[run.googleapis.com](http://run.googleapis.com/) \
-   	[compute.googleapis.com](http://compute.googleapis.com/) \
-   	[vpcaccess.googleapis.com](http://vpcaccess.googleapis.com/) \
-   	[servicenetworking.googleapis.com](http://servicenetworking.googleapis.com/) \
-   	[secretmanager.googleapis.com](http://secretmanager.googleapis.com/) \
-   	[sqladmin.googleapis.com](http://sqladmin.googleapis.com/) \
-   	[cloudbuild.googleapis.com](http://cloudbuild.googleapis.com/)
+   	artifactregistry.googleapis.com/ \
+   	run.googleapis.com/ \
+   	compute.googleapis.com/ \
+   	vpcaccess.googleapis.com/ \
+   	servicenetworking.googleapis.com/ \
+   	secretmanager.googleapis.com/ \
+   	sqladmin.googleapis.com/ \
+   	cloudbuild.googleapis.com/
    ```
 
 1. Create artifact registry (to store the backstage docker image)

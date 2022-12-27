@@ -8,7 +8,7 @@
 
 ## Get Started
 
-1. Setup backstage app to your local machine [https://backstage.io/docs/getting-started/create-an-app](https://backstage.io/docs/getting-started/create-an-app)
+Setup backstage app to your local machine [https://backstage.io/docs/getting-started/create-an-app](https://backstage.io/docs/getting-started/create-an-app)
 
 1. Set Variables (for a more readable command), paste this to your terminal
 
@@ -18,7 +18,7 @@
    export REPO_NAME=backstage
    ```
 
-1. Enable GCloud API Services
+2. Enable GCloud API Services
 
    ```bash
    gcloud services enable \
@@ -32,14 +32,14 @@
    	cloudbuild.googleapis.com/
    ```
 
-1. Create artifact registry (to store the backstage docker image)
+3. Create artifact registry (to store the backstage docker image)
 
    ```bash
    gcloud artifacts repositories create ${REPO_NAME} --repository-format=docker \
    --location=${REGION} --description="Docker image for backstage"
    ```
 
-1. Create a secret value for environment variables
+4. Create a secret value for environment variables
 
    ```bash
    gcloud secrets create POSTGRES_PASSWORD \
@@ -48,13 +48,13 @@
        gcloud secrets versions add POSTGRES_PASSWORD --data-file=-
    ```
 
-1. Authenticate Docker config
+5. Authenticate Docker config
 
    ```bash
    gcloud auth configure-docker ${REGION}-docker.pkg.dev
    ```
 
-1. Build and Push the docker image to the artifact registry (locally)
+6. Build and Push the docker image to the artifact registry (locally)
 
    ```bash
    # From root folder
@@ -69,7 +69,7 @@
    docker push ${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPO_NAME}/${REPO_NAME}:dev
    ```
 
-1. Optional: Docker build and push using cloudbuild. Make sure to do `yarn build:all` first
+7. Optional: Docker build and push using cloudbuild. Make sure to do `yarn build:all` first
 
    ```bash
    # Create a new file: cloudbuild.yaml and paste this:

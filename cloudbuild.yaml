@@ -1,0 +1,38 @@
+steps:
+  # Docker Build
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['pull', 'docker/dockerfile:experimental']
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      [
+        'build',
+        '.',
+        '-f',
+        'packages/backend/Dockerfile',
+        '-t',
+        'us-west1-docker.pkg.dev/terraform-cloudrun-371209/backstage/backstage:dev',
+      ]
+    env:
+      - 'DOCKER_BUILDKIT=1'
+
+    # Docker Push
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      [
+        'push',
+        'us-west1-docker.pkg.dev/terraform-cloudrun-371209/backstage/backstage:dev',
+      ]
+
+  # Deploy to Cloud Run
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      [
+        'run',
+        'services',
+        'update',
+        'backstage',
+        '--platform=managed',
+        '--image=us-west1-docker.pkg.dev/terraform-cloudrun-371209/backstage/backstage:dev',
+        '--region',
+        'us-west1',
+      ]

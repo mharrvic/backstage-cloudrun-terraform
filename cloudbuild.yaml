@@ -10,7 +10,7 @@ steps:
         '-f',
         'packages/backend/Dockerfile',
         '-t',
-        'us-west1-docker.pkg.dev/terraform-cloudrun-371209/backstage/backstage:dev',
+        'us-west1-docker.pkg.dev/your-gcp-project-id/backstage/backstage:dev',
       ]
     env:
       - 'DOCKER_BUILDKIT=1'
@@ -20,7 +20,7 @@ steps:
     args:
       [
         'push',
-        'us-west1-docker.pkg.dev/terraform-cloudrun-371209/backstage/backstage:dev',
+        'us-west1-docker.pkg.dev/your-gcp-project-id/backstage/backstage:dev',
       ]
 
   # Deploy to Cloud Run
@@ -32,7 +32,7 @@ steps:
         'update',
         'backstage',
         '--platform=managed',
-        '--image=us-west1-docker.pkg.dev/terraform-cloudrun-371209/backstage/backstage:dev',
+        '--image=us-west1-docker.pkg.dev/your-gcp-project-id/backstage/backstage:dev',
         '--region',
         'us-west1',
       ]

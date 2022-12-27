@@ -3,14 +3,14 @@ resource "random_id" "user-password" {
 }
 
 resource "google_sql_database" "backstage_db" {
-  project  = var.backstage_project
+  project  = var.project_id
   name     = google_sql_database_instance.backstage.name
   instance = google_sql_database_instance.backstage.name
 }
 
 resource "google_sql_database_instance" "backstage" {
   provider         = google-beta
-  project          = var.backstage_project
+  project          = var.project_id
   name             = "backstage-db"
   database_version = "POSTGRES_14"
   region           = var.region

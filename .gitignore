@@ -32,7 +32,7 @@ node_modules/
 .env.test
 
 # Build output
-dist
+packages/app/dist
 dist-types
 
 # Temporary change files created by Vim

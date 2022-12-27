@@ -1,4 +1,4 @@
-resource "google_cloud_run_service" "tm_engineering_map" {
+resource "google_cloud_run_service" "backstage" {
   provider = google-beta
 
   name     = "backstage"
@@ -76,7 +76,7 @@ data "google_iam_policy" "noauth" {
 resource "google_cloud_run_service_iam_policy" "noauth" {
   location = var.region
   project  = var.project_id
-  service  = google_cloud_run_service.tm_engineering_map.name
+  service  = google_cloud_run_service.backstage.name
 
   policy_data = data.google_iam_policy.noauth.policy_data
 }

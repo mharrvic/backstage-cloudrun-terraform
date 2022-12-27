@@ -12,11 +12,6 @@ module "vpc" {
   project_id = var.project
 }
 
-module "iam" {
-  source     = "../../modules/iam"
-  project_id = var.project
-}
-
 module "cloudsql" {
   source        = "../../modules/cloudsql"
   region        = var.region
@@ -36,6 +31,10 @@ module "secrets" {
   ]
 }
 
+module "iam" {
+  source     = "../../modules/iam"
+  project_id = var.project
+}
 module "cloudrun" {
   source                            = "../../modules/cloudrun"
   project_id                        = var.project
